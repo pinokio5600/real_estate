@@ -99,6 +99,7 @@
 								</div>
 						</section>
 			<%@include file="../include/footer.jsp" %> 
+			</section>
 		</div>
 	</body>
 </html>
