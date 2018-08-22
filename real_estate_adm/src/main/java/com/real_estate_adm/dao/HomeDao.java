@@ -6,4 +6,6 @@ public interface HomeDao {
 	public String getNowTime();
 	
 	public void insDo(Region_doVO vo);
+	
+	public String selDo();
 }

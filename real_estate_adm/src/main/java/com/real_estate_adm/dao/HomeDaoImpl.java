@@ -26,5 +26,11 @@ public class HomeDaoImpl implements HomeDao{
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".insDo", vo);
 	}
+	
+	@Override
+	public String selDo() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

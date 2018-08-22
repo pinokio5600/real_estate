@@ -42,7 +42,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
-	public String form() {
+	public String form(Model model) {
+		HomeDao homeDao = sqlSession.getMapper(HomeDao.class);
+		String selDo = homeDao.selDo();
+		model.addAttribute("selDo", selDo);
+		
 		return "form";
 	}
 	

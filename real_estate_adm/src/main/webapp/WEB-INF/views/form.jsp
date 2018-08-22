@@ -34,12 +34,13 @@
 					              </div>
 					      		  <div class="form-group">
 					                  <label>지역</label>
-					                  <select class="form-control">
-                                          <option>원미구</option>
-                                          <option>Two Vale</option>
-                                          <option>Three Vale</option>
-                                          <option>Four Vale</option>
-                                      </select>
+					                  <c:if test="${!empty selDo}">
+						                  <select class="form-control">
+	                                          <c:forEach var="do" items="${selDo}" varStatus="i">
+	                                          	<option value="${selDo.val}">${selDo.region_do}</option>
+	                                          </c:forEach>
+	                                      </select>
+                                      </c:if>
 					           		  <p class="help-block">Help text here.</p>
 					              </div>
 				                  <div class="form-group">
