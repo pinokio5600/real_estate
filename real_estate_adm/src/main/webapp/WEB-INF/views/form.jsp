@@ -16,8 +16,8 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="page-head-line">글 등록</h1>
-                        <h1 class="page-subhead-line">새 게시글 등록</h1>
+                        <h1 class="page-head-line">등록</h1>
+                        <h1 class="page-subhead-line">등록 관리</h1>
 
                     </div>
                 </div>
@@ -25,9 +25,7 @@
                 <div class="row">
 					<div class="col-md-6 col-sm-6 col-xs-12">
 					   <div class="panel panel-info">
-					       <div class="panel-heading">
-					          BASIC FORM
-					       </div>
+					       <div class="panel-heading">게시글 등록</div>
 					       <div class="panel-body">
 					           <form role="form">
 					              <div class="form-group">
@@ -55,29 +53,25 @@
 					</div>
 					<div class="col-md-6 col-sm-6 col-xs-12">
 					  <div class="panel panel-danger">
-					     <div class="panel-heading">
-					        SINGUP FORM
-					     </div>
+					     <div class="panel-heading">지역 등록</div>
 					     <div class="panel-body">
-					         <form role="form">					                     
+					         <form role="form" id="do" action="region_do">					                     
 					              <div class="form-group">
-			                         <label>Enter Email</label>
-			                         <input class="form-control" type="text">
-					                 <p class="help-block">Help text here.</p>
-					              </div>
+			                         <label>도:</label>
+			                         <input id="region_do" name="region_do" class="form-control" type="text" style="width:15%; display:inline;" />
+			                         <button type="button" onclick="addRegion('addDo');" class="btn btn-danger" style="right:40px; position:absolute;">도 등록</button>		
+					              </div>			                      			
+					         </form>
+					         <form role="form" id="si">					                     
 					              <div class="form-group">
-			                         <label>Enter Password</label>
-			                         <input class="form-control" type="password">
-					                 <p class="help-block">Help text here.</p>
-					             </div>
-					             <div class="form-group">
-			                         <label>Re Type Password </label>
-			                         <input class="form-control" type="password">
-			                 		 <p class="help-block">Help text here.</p>
-					             </div>
-					              
-			                     <button type="submit" class="btn btn-danger">Register Now </button>
-					
+			                         <label>도:</label>
+			                         <select class="form-control" style="width:15%; display:inline;">
+			                         	<option></option>
+			                         </select>
+			                         <label>시:</label>
+			                         <input class="form-control" type="text" style="width:15%; display:inline;" />			                     
+			                         <button type="submit" class="btn btn-danger" style="right:40px; position:absolute;">시 등록</button>		
+					              </div>			                      			
 					         </form>
 					     </div>
 					</div>
@@ -227,3 +221,13 @@
     </div>
 </body>
 </html>
+
+<script type="text/javascript">
+	function addRegion(type){
+		if(confirm("등록하시겠습니까?")){
+			if(type=="addDo"){
+				$("form#do").submit();
+			}
+		}
+	}
+</script>

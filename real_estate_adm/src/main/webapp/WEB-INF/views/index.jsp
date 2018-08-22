@@ -33,7 +33,7 @@
 	                        <div class="main-box mb-dull" style="height:155px;">
 	                            <a href="#">
 	                                <i class="fa fa-plug fa-5x"></i>
-	                                <h5>40 Task In Check</h5>
+	                                <h5>${nowTime}</h5>
 	                            </a>
 	                        </div>
 	                    </div>
