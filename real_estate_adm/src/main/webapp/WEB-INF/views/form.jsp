@@ -34,13 +34,30 @@
 					              </div>
 					      		  <div class="form-group">
 					                  <label>지역</label>
-					                  <c:if test="${!empty selDo}">
-						                  <select class="form-control">
-	                                          <c:forEach var="do" items="${selDo}" varStatus="i">
-	                                          	<option value="${selDo.val}">${selDo.region_do}</option>
-	                                          </c:forEach>
-	                                      </select>
-                                      </c:if>
+					                  <select class="form-control" style="width:18%; display:inline;" onchange="javascript:changeRegion('do',this.value)" >
+						                  <c:choose>
+							                  <c:when test="${!empty selDo}">							                  
+			                                          <c:forEach var="doName" items="${selDo}" varStatus="i">
+			                                          	<option value="${doName.region_do_val}">${doName.region_do}</option>
+			                                          </c:forEach>			                                      
+		                                      </c:when>
+		                                      <c:otherwise>	                                          
+			                                          	<option value="">없음</option>
+		                                      </c:otherwise>
+	                                      </c:choose>
+	                                  </select>
+                                      <select class="form-control" style="width:18%; display:inline;">
+	                                      <c:choose>                                      	  
+							                  <c:when test="${!empty selSi}">							              
+		                                          <c:forEach var="doName" items="${selSi}" varStatus="i">
+		                                          	<option value="${doName.region_si_val}">${doName.region_si}</option>
+		                                          </c:forEach>
+		                                      </c:when>
+		                                      <c:otherwise>	                                          
+			                                          	<option value="" >없음</option>
+		                                      </c:otherwise>
+	                                      </c:choose>
+                                      </select>
 					           		  <p class="help-block">Help text here.</p>
 					              </div>
 				                  <div class="form-group">
@@ -56,22 +73,31 @@
 					  <div class="panel panel-danger">
 					     <div class="panel-heading">지역 등록</div>
 					     <div class="panel-body">
-					         <form role="form" id="do" action="region_do">					                     
-					              <div class="form-group">
+					         <form role="form" id="do" action="regionReg">					                     
+					              <div class="form-group">					        
 			                         <label>도:</label>
 			                         <input id="region_do" name="region_do" class="form-control" type="text" style="width:15%; display:inline;" />
 			                         <button type="button" onclick="addRegion('addDo');" class="btn btn-danger" style="right:40px; position:absolute;">도 등록</button>		
 					              </div>			                      			
 					         </form>
-					         <form role="form" id="si">					                     
+					         <form role="form" id="si" action="regionReg">					                     
 					              <div class="form-group">
 			                         <label>도:</label>
-			                         <select class="form-control" style="width:15%; display:inline;">
-			                         	<option></option>
-			                         </select>
+			                         <select id="region_do_val" name="region_do_val" class="form-control" style="width:18%; display:inline;">
+				                         <c:choose>
+							                  <c:when test="${!empty selDo}">							                  
+		                                          <c:forEach var="doName" items="${selDo}" varStatus="i">
+		                                          	 <option value="${doName.region_do_val}">${doName.region_do}</option>
+		                                          </c:forEach>			                                      
+		                                      </c:when>
+		                                      <c:otherwise>	                                          
+	                                          		 <option value="">없음</option>
+		                                      </c:otherwise>
+	                                     </c:choose>	
+	                                 </select>		                       
 			                         <label>시:</label>
-			                         <input class="form-control" type="text" style="width:15%; display:inline;" />			                     
-			                         <button type="submit" class="btn btn-danger" style="right:40px; position:absolute;">시 등록</button>		
+			                         <input id="region_si" name="region_si" class="form-control" type="text" style="width:15%; display:inline;" />			                     
+			                         <button type="button" onclick="addRegion('addSi');" class="btn btn-danger" style="right:40px; position:absolute;">시 등록</button>		
 					              </div>			                      			
 					         </form>
 					     </div>
@@ -228,7 +254,15 @@
 		if(confirm("등록하시겠습니까?")){
 			if(type=="addDo"){
 				$("form#do").submit();
+			}else if(type=="addSi"){
+				$("form#si").submit();
 			}
+		}
+	}
+	
+	function changeRegion(type, val){
+		if(type=="do"){
+			alert("ok");
 		}
 	}
 </script>

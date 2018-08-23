@@ -33,13 +33,21 @@
 					                  <input id="title" class="form-control" type="text">
 					              </div>
 					      		  <div class="form-group">
-					                  <label>지역</label>
-					                  <select class="form-control">
-                                          <option>원미구</option>
-                                          <option>Two Vale</option>
-                                          <option>Three Vale</option>
-                                          <option>Four Vale</option>
-                                      </select>
+					                  <label>지역$</label>
+					                  <c:choose>
+						                  <c:when test="${!empty selDo}">
+							                  <select class="form-control">
+		                                          <c:forEach var="doName" items="${selDo}" varStatus="i">
+		                                          	<option value="${doName.region_do_val}">${doName.region_do}</option>
+		                                          </c:forEach>
+		                                      </select>
+	                                      </c:when>
+	                                      <c:otherwise>
+		                                      <select class="form-control">		                                          
+		                                          	<option value="">없음</option>
+			                                  </select>
+	                                      </c:otherwise>
+                                      </c:choose>
 					           		  <p class="help-block">Help text here.</p>
 					              </div>
 				                  <div class="form-group">
@@ -55,19 +63,30 @@
 					  <div class="panel panel-danger">
 					     <div class="panel-heading">지역 등록</div>
 					     <div class="panel-body">
-					         <form role="form" id="do" action="/region_do">					                     
+					         <form role="form" id="do" action="region_do">					                     
 					              <div class="form-group">
 			                         <label>도:</label>
-			                         <input class="form-control" type="text" style="width:15%; display:inline;" />
+			                         <input id="region_do" name="region_do" class="form-control" type="text" style="width:15%; display:inline;" />
 			                         <button type="button" onclick="addRegion('addDo');" class="btn btn-danger" style="right:40px; position:absolute;">도 등록</button>		
 					              </div>			                      			
 					         </form>
 					         <form role="form" id="si">					                     
 					              <div class="form-group">
 			                         <label>도:</label>
-			                         <select class="form-control" style="width:15%; display:inline;">
-			                         	<option></option>
-			                         </select>
+			                         <c:choose>
+						                  <c:when test="${!empty selDo}">
+							                  <select class="form-control" style="width:18%; display:inline;">
+		                                          <c:forEach var="doName" items="${selDo}" varStatus="i">
+		                                          	<option value="${doName.region_do_val}">${doName.region_do}</option>
+		                                          </c:forEach>
+		                                      </select>
+	                                      </c:when>
+	                                      <c:otherwise>
+		                                      <select class="form-control">		                                          
+		                                          	<option value="">없음</option>
+			                                  </select>
+	                                      </c:otherwise>
+                                     </c:choose>			                       
 			                         <label>시:</label>
 			                         <input class="form-control" type="text" style="width:15%; display:inline;" />			                     
 			                         <button type="submit" class="btn btn-danger" style="right:40px; position:absolute;">시 등록</button>		
@@ -224,8 +243,10 @@
 
 <script type="text/javascript">
 	function addRegion(type){
-		if(type=="addDo"){
-			$("form#do").submit();
+		if(confirm("등록하시겠습니까?")){
+			if(type=="addDo"){
+				$("form#do").submit();
+			}
 		}
 	}
 </script>

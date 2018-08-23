@@ -1,15 +1,19 @@
 package com.real_estate_adm.dao;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.real_estate_adm.vo.Region_doVO;
+import com.real_estate_adm.vo.RegionVO;
 
 @Repository
 public class HomeDaoImpl implements HomeDao{
 	
-	@Autowired	// == @Inject
+	@Inject	// == @Autowired
 	private SqlSession sqlSession;
 	@Autowired
 	private static final String namespace = "com.real_estate_adm.dao.HomeDao"; 
@@ -22,15 +26,24 @@ public class HomeDaoImpl implements HomeDao{
 	}
 
 	@Override
-	public void insDo(Region_doVO vo) {
+	public void insDo(RegionVO vo) {
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".insDo", vo);
 	}
-	
 	@Override
-	public String selDo() {
+	public void insSi(RegionVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		sqlSession.insert(namespace+".insSi", vo);
 	}
 
+	@Override
+	public List<RegionVO> selDo() {
+		return sqlSession.selectList(namespace+".selDo");
+	}
+
+	@Override
+	public List<RegionVO> selSi(int region_do_val) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".selSi");
+	}
 }

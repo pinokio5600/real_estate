@@ -10,15 +10,20 @@
     <insert id="insDo">
         insert into region_do(region_do) values(#{region_do});
     </insert>
+    <insert id="insSi">
+        insert into region_Si(region_si, region_do_val) values(#{region_si},#{region_do_val});
+    </insert>
     
-    <select id="selDo" resultType="com.real_estate_adm.vo.Region_doVO">
+    <select id="selDo" resultType="com.real_estate_adm.vo.RegionVO">
         SELECT *
         FROM region_do
     </select>
     
-    <resultMap id="region_doResult" type="com.real_estate_adm.vo.Region_doVO">
-        <result property="region_do" column="region_do"/>
-        <result property="val" column="val"/>
-    </resultMap>
-
+    <select id="selSi" resultType="com.real_estate_adm.vo.RegionVO">
+        SELECT *
+        FROM region_si
+        <if test="region_do_val != null and region_do_val != 0">
+            WHERE region_do_val = ${region_do_val}
+        </if>        
+    </select>
 </mapper>
