@@ -13,17 +13,23 @@
     <insert id="insSi">
         insert into region_Si(region_si, region_do_val) values(#{region_si},#{region_do_val});
     </insert>
+    <insert id="insGu">
+        insert into region_Gu(region_do_val, region_si_val, region_gu) values(#{region_do_val}, #{region_si_val}, #{region_gu});
+    </insert>
     
     <select id="selDo" resultType="com.real_estate_adm.vo.RegionVO">
         SELECT *
         FROM region_do
     </select>
     
-    <select id="selSi" resultType="com.real_estate_adm.vo.RegionVO">
+    <select id="selSi" parameterType="com.real_estate_adm.vo.RegionVO" resultType="com.real_estate_adm.vo.RegionVO">
         SELECT *
         FROM region_si
-        <if test="region_do_val != null and region_do_val != 0">
-            WHERE region_do_val = ${region_do_val}
-        </if>        
+        WHERE region_do_val = #{value}      
+    </select>
+    <select id="selGu" parameterType="com.real_estate_adm.vo.RegionVO" resultType="com.real_estate_adm.vo.RegionVO">
+        SELECT *
+        FROM region_gu
+        WHERE region_do_val = #{region_do_val} AND region_si_val = #{region_si_val}      
     </select>
 </mapper>

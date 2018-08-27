@@ -7,6 +7,9 @@ public class RegionVO {
 	private String region_si;
 	private int region_si_val;
 	
+	private String region_gu;
+	private int region_gu_val;
+	
 	public String getRegion_do() {
 		return region_do;
 	}
@@ -31,6 +34,17 @@ public class RegionVO {
 	public void setRegion_si_val(int region_si_val) {
 		this.region_si_val = region_si_val;
 	}
-	
+	public String getRegion_gu() {
+		return region_gu;
+	}
+	public void setRegion_gu(String region_gu) {
+		this.region_gu = region_gu;
+	}
+	public int getRegion_gu_val() {
+		return region_gu_val;
+	}
+	public void setRegion_gu_val(int region_gu_val) {
+		this.region_gu_val = region_gu_val;
+	}	
 	
 }

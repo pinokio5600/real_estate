@@ -35,15 +35,22 @@ public class HomeDaoImpl implements HomeDao{
 		// TODO Auto-generated method stub
 		sqlSession.insert(namespace+".insSi", vo);
 	}
+	@Override
+	public void insGu(RegionVO vo) {
+		sqlSession.insert(namespace+".insGu", vo);
+		
+	}
 
 	@Override
 	public List<RegionVO> selDo() {
 		return sqlSession.selectList(namespace+".selDo");
 	}
-
 	@Override
 	public List<RegionVO> selSi(int region_do_val) {
-		// TODO Auto-generated method stub
-		return sqlSession.selectList(namespace+".selSi");
+		return sqlSession.selectList(namespace+".selSi", region_do_val);
+	}
+	@Override
+	public List<RegionVO> selGu(RegionVO vo) {
+		return sqlSession.selectList(namespace+".selGu", vo);
 	}
 }

@@ -12,9 +12,10 @@ public interface HomeDao {
 	
 	public void insDo(RegionVO vo);
 	public void insSi(RegionVO vo);
-	
+	public void insGu(RegionVO vo);
 	
 	public List<RegionVO> selDo();
-	public List<RegionVO> selSi(int region_do_val);
+	public List<RegionVO> selSi(int value);
+	public List<RegionVO> selGu(RegionVO vo);
 
 }

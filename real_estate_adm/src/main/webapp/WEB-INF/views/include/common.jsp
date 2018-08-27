@@ -1,6 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-    
 <!-- BOOTSTRAP STYLES-->
 	<link href="resources/css/bootstrap.css" rel="stylesheet" />
 	<!-- FONTAWESOME STYLES-->
@@ -13,9 +10,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 
-
-<!-- /. FOOTER  -->
-	<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 	<!-- JQUERY SCRIPTS -->
 	<script src="resources/js/jquery-1.10.2.js"></script>
 	<!-- BOOTSTRAP SCRIPTS -->

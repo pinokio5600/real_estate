@@ -158,8 +158,31 @@
 			<artifactId>log4jdbc-remix</artifactId> 
 			<version>0.2.7</version>
 		</dependency>
-
-        
+		
+		<!-- json -->
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>			
+			<artifactId>json</artifactId>			
+			<version>20140107</version>		
+		</dependency>        
+		
+		<!-- MultipartHttpServletRequset -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+ 
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.2</version>
+        </dependency>
 	</dependencies>
     <build>
         <plugins>

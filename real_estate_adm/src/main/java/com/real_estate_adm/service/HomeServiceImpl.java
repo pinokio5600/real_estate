@@ -26,4 +26,9 @@ public class HomeServiceImpl implements HomeService {
 		List<RegionVO> list = homeDao.selSi(region_do_val);
 		return list;
 	}
+
+	public List<RegionVO> selGu(RegionVO vo) throws Exception {
+		List<RegionVO> list = homeDao.selGu(vo);
+		return list;
+	}
 }

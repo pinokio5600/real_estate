@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index">뿌르릉</a>
+        <a class="navbar-brand" href="/adm">뿌르릉</a>
     </div>
 
     <div class="header-right">	
@@ -38,7 +38,7 @@
 
             <li>
                 <!-- a class="active-menu" href=""><i class="fa fa-dashboard "></i>메인</a-->
-                <a href="" onclick="$(this).attr('class','active-menu');"><i class="fa fa-dashboard "></i>메인</a>
+                <a href="/adm" onclick="$(this).attr('class','active-menu');"><i class="fa fa-dashboard "></i>메인</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-desktop "></i>UI Elements <span class="fa arrow"></span></a>
