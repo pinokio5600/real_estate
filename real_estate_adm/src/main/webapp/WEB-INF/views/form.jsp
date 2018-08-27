@@ -97,7 +97,7 @@
 					                  <label>내용</label>
 					                  <textarea id="context" name="context" class="form-control" rows="10"></textarea>
 					              </div>					
-					              <form method="post" enctype="multipart/form-data" action="imgup.jsp">
+					              <form method="post" enctype="multipart/form-data" action="/board/write">
 									  <input type="file" name="file1" size=40 style="margin-bottom:15px;" />
 									  <input type="file" name="file2" size=40 style="margin-bottom:15px;" />
 								  </form>

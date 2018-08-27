@@ -68,5 +68,9 @@
 	    <property name="dataSource" ref="dataSource" />
 	</bean>
 	
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">	
+	    <property value="5242880000" name="maxUploadSize"></property>	
+	</bean>
+	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
