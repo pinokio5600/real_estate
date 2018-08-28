@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -25,17 +24,11 @@ import com.real_estate_adm.dao.HomeDao;
 import com.real_estate_adm.service.HomeService;
 import com.real_estate_adm.vo.RegionVO;
 
-
-
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	
-	@Autowired
-	private SqlSession sqlSession;	
-	
 	@Autowired
 	private HomeDao dao;
 	@Autowired

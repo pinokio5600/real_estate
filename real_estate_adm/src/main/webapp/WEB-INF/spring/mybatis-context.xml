@@ -68,9 +68,12 @@
 	    <property name="dataSource" ref="dataSource" />
 	</bean>
 	
-	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">	
-	    <property value="5242880000" name="maxUploadSize"></property>	
-	</bean>
+	<!-- 업로드 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="100000000"/>
+        <property name="maxInMemorySize" value="100000000"/>
+    </bean>
+
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 </beans>
