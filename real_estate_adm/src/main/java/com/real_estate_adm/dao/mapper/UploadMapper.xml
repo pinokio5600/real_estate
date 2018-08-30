@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.real_estate_adm.dao.UploadDao">        
+    <insert id="insUpload">
+        insert into upload(board_seq, upload_src, upload_name) values(
+        	#{board_seq}, #{upload_src}, #{upload_name});
+    </insert>
+</mapper>

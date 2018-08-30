@@ -3,7 +3,13 @@
 
 <mapper namespace="com.real_estate_adm.dao.BoardDao">        
     <insert id="insBoard">
-        insert into board(title, img_src, img_name, region_do_val, region_si_val, region_gu_val) values(
-        	#{title}, #{img_src}, #{img_name}, #{region_do_val}, #{region_si_val}, #{region_gu_val});
+        insert into board(title, region_do_val, region_si_val, region_gu_val) values(
+        	#{title}, #{region_do_val}, #{region_si_val}, #{region_gu_val});
     </insert>
+    
+    <select id="selBoard_seq" resultType="int">
+        SELECT board_seq
+        FROM board
+        WHERE title = #{title} AND board_seq = (SELECT MAX(board_seq) FROM board)
+    </select>
 </mapper>

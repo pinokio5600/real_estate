@@ -75,11 +75,18 @@
 									</footer>
 								</div>
 						</section>
-
-<%@include file="include/footer.jsp" %>    						
-
+						<!-- 플러스친구 버튼 -->
+						<div id="plusfriend-chat-button" style="right: 50px; bottom: 45px; position: fixed;"></div>
 						
+						<%@include file="include/footer.jsp" %>
 				</section>
 		</div>
 	</body>
+	<script type="text/javascript">
+		Kakao.init("d7cae200ae086234c4afe8a27217174b");
+		Kakao.PlusFriend.createChatButton({
+			container:"#plusfriend-chat-button",
+			plusFriendId:"_dWdZj"
+		});
+	</script>
 </html>

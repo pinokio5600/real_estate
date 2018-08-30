@@ -18,6 +18,11 @@ public class BoardDaoImpl implements BoardDao{
 	@Override
 	public void insBoard(BoardVO vo) {
 		sqlSession.insert(namespace+".insBoard", vo);		
-	} 
+	}
 
+	@Override
+	public int selBoard_seq(String title) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".selBoard_seq", title);
+	} 
 }

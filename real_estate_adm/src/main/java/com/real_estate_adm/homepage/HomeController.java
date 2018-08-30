@@ -100,16 +100,6 @@ public class HomeController {
 		
 		return "redirect:/form";
 	}
-	@RequestMapping(value = "/region_si", method = RequestMethod.GET)
-	public String region_si(String region_si, int region_do_val) {
-		RegionVO vo = new RegionVO();
-		vo.setRegion_si(region_si);
-		vo.setRegion_do_val(region_do_val);
-		
-		dao.insDo(vo);
-		
-		return "redirect:/form";
-	}
 	
 	@RequestMapping(value = "/selectChange")
 	public void selectChange(@RequestParam(required = false) String do_val

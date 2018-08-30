@@ -1,37 +1,24 @@
 package com.real_estate_adm.vo;
 
 public class BoardVO {
-	private int idx;
+	private int board_seq;
 	private String title;
-	private String img_src;
-	private String img_name;
 	private String region_do_val;
 	private String region_si_val;
 	private String region_gu_val;
 	
-	public int getIdx() {
-		return idx;
+	
+	public int getBoard_seq() {
+		return board_seq;
 	}
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setBoard_seq(int board_seq) {
+		this.board_seq = board_seq;
 	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getImg_src() {
-		return img_src;
-	}
-	public void setImg_src(String img_src) {
-		this.img_src = img_src;
-	}
-	public String getImg_name() {
-		return img_name;
-	}
-	public void setImg_name(String img_name) {
-		this.img_name = img_name;
 	}
 	public String getRegion_do_val() {
 		return region_do_val;

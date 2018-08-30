@@ -30,14 +30,14 @@
 						   <div class="panel panel-info">
 						       <div class="panel-heading">게시글 등록</div>
 						       <div class="panel-body">					              					
-					              <form enctype="multipart/form-data" action="/adm/board/write">
+					              <form enctype="multipart/form-data" action="/adm/board/write" method="post">
 					              	  <div class="form-group">
 						                  <label>제목</label>
-						                  <input id="title" class="form-control" type="text">
+						                  <input id="title" name="title" class="form-control" type="text">
 						              </div>
 						      		  <div class="form-group">
 						                  <label style="display: block;">지역</label>
-						                  <select id="doSelect" class="form-control" style="width:18%; display:inline;" onchange="javascript:changeRegion('doSelect','do',this.value)" >
+						                  <select id="doSelect" name="region_do_val" class="form-control" style="width:18%; display:inline;" onchange="javascript:changeRegion('doSelect','do',this.value)" >
 							                  <c:choose>
 								                  <c:when test="${!empty selDo}">							
 							                  		  <option value="">선택</option>                  
@@ -51,7 +51,7 @@
 		                                      </c:choose>
 		                                  </select>
 		                                  
-	                                      <select id="siSelect" name="siSelect" onchange="javascript:changeRegion('siSelect','si',this.value)" class="form-control" style="width:18%; display:inline;">
+	                                      <select id="siSelect" name="region_si_val" onchange="javascript:changeRegion('siSelect','si',this.value)" class="form-control" style="width:18%; display:inline;">
 		                                      <c:choose>                                      	  
 								                  <c:when test="${!empty selSi}">	
 								                      <option>선택</option>						              
@@ -61,7 +61,7 @@
 			                                      </c:otherwise>
 		                                      </c:choose>
 	                                      </select>
-	                                      <select id="guSelect" name="guSelect" class="form-control" style="width:18%; display:inline;">
+	                                      <select id="guSelect" name="region_gu_val" class="form-control" style="width:18%; display:inline;">
 		                                      <c:choose>                                      	  
 								                  <c:when test="${!empty selGu}">	
 								                      <option>선택</option>						              
@@ -85,22 +85,20 @@
 						                  <label>매물 종류 : </label>
 						                  <select id="saleType" name="saleType" class="form-control" style="width:25%; display:inline;">
 						                  	<option value="">선택</option>
-						                  	<option value="1">원룸</option>
-						                  	<option value="2">투룸</option>
-						                  	<option value="3">오피스텔</option>
-						                  	<option value="4">주택</option>
-						                  	<option value="5">아파트</option>
-						                  	<option value="6">토지</option>
-						                  	<option value="7">공장</option>
+						                  	<option value="1">주택</option>
+						                  	<option value="2">아파트</option>
+						                  	<option value="3">토지</option>
+						                  	<option value="4">공장</option>
 						                  </select>
 						              </div>
 					                  <div class="form-group">
 						                  <label>내용</label>
 						                  <textarea id="context" name="context" class="form-control" rows="10"></textarea>
 						              </div>
-									  <input type="file" name="file1" size=40 style="margin-bottom:15px;" />
-									  <input type="file" name="file2" size=40 style="margin-bottom:15px;" />
-									  
+						              <div id="upload-form">
+									  	<input type="file" name="file" size=40 style="margin-bottom:15px;" />									  	
+									  </div>
+									  <button type="button" onclick="addUpload();" class="btn btn-info">첨부파일 추가</button>	
 									  <button type="submit" class="btn btn-info">글 등록</button>	
 								  </form>
 					              					         
@@ -386,6 +384,12 @@
 				       }
 				});
 			}
+		}
+		
+		function addUpload(){
+			var html = ""
+			html += "<input type='file' name='file' size=40 style='margin-bottom:15px;' />"
+			$("#upload-form").append(html);
 		}
 	</script>
 
