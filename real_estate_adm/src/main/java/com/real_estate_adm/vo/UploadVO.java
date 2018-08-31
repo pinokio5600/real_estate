@@ -4,6 +4,7 @@ public class UploadVO {
 	private int upload_seq;
 	private int board_seq;
 	private String upload_src;
+	private String upload_src_name;
 	private String upload_name;
 	
 	public int getUpload_seq() {
@@ -29,5 +30,12 @@ public class UploadVO {
 	}
 	public void setUpload_name(String upload_name) {
 		this.upload_name = upload_name;
+	}
+	public String getUpload_src_name() {
+		return upload_src_name;
+	}
+	public void setUpload_src_name(String upload_src_name) {
+		this.upload_src_name = upload_src_name;
 	}	
+	
 }

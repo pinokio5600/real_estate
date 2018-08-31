@@ -75,7 +75,7 @@
 						              </div>
 						              <div class="form-group">
 						                  <label>거래 종류 : </label>
-						                  <select id="tradeType" name="tradeType" class="form-control" style="width:25%; display:inline;">
+						                  <select id="trade_type" name="trade_type" class="form-control" style="width:25%; display:inline;">
 						                  	<option value="">선택</option>
 						                  	<option value="month">월세</option>
 						                  	<option value="charter">전세</option>
@@ -91,14 +91,18 @@
 						                  	<option value="4">공장</option>
 						                  </select>
 						              </div>
+						              <div class="form-group">
+						                  <label>금액 : </label>
+						                  <input type="text" id="price" name="price" class="form-control" style="width:25%; display:inline;"/> 원
+						              </div>
 					                  <div class="form-group">
 						                  <label>내용</label>
 						                  <textarea id="context" name="context" class="form-control" rows="10"></textarea>
 						              </div>
 						              <div id="upload-form">
-									  	<input type="file" name="file" size=40 style="margin-bottom:15px;" />									  	
+									  	<input type="file" name="file" size=40 style="margin-bottom:15px; display:inline;" />&nbsp;&nbsp;<a href="javascript:void(0);" onclick="addUpload();"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>							  	
 									  </div>
-									  <button type="button" onclick="addUpload();" class="btn btn-info">첨부파일 추가</button>	
+									  	
 									  <button type="submit" class="btn btn-info">글 등록</button>	
 								  </form>
 					              					         

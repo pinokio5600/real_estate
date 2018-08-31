@@ -3,7 +3,7 @@
 
 <mapper namespace="com.real_estate_adm.dao.UploadDao">        
     <insert id="insUpload">
-        insert into upload(board_seq, upload_src, upload_name) values(
-        	#{board_seq}, #{upload_src}, #{upload_name});
+        insert into upload(board_seq, upload_src, upload_src_name, upload_name) values(
+        	#{board_seq}, #{upload_src}, #{upload_src_name}, #{upload_name});
     </insert>
 </mapper>

@@ -36,7 +36,8 @@ public class BoardController {
 	@RequestMapping(value = "/board/write", method = RequestMethod.POST)
 	public String write(MultipartHttpServletRequest req, BoardVO boardVO) throws Exception {				
 		List<MultipartFile> fileList = req.getFiles("file");
-		String path = req.getSession().getServletContext().getRealPath("/resources/upload/");
+		//String path = req.getSession().getServletContext().getRealPath("/resources/upload/");
+		String path = "C://Users/YUNA/git/real_estate/real_estate_adm/src/main/webapp/resources/upload/";
 		
 		
 		dao.insBoard(boardVO);
@@ -71,9 +72,12 @@ public class BoardController {
 			UploadVO vo = new UploadVO();
 			
 			String src = path+uuid+ext;
+			String name = uuid + ext ;
+			
 			logger.info("src : " + src);	
 			vo.setUpload_name(originName);
 			vo.setUpload_src(src);
+			vo.setUpload_src_name(name);
 			
 			int board_seq  = boardService.selBoard_seq(title);
 			

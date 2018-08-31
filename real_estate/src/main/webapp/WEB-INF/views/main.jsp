@@ -42,33 +42,16 @@
 							<!-- Photo Galleries -->
 								<div class="gallery">
 									<header class="special">
-										<h2>새로 올라온 글</h2>
+										<h2>새로 올라온 글</h2>										
 									</header>
 									<div class="content">
-										<div class="media">
-											<a href="images/fulls/01.jpg"><img src="images/thumbs/01.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/05.jpg"><img src="images/thumbs/05.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/03.jpg"><img src="images/thumbs/03.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
-										<div class="media">
-											<a href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" title="This right here is a caption." /></a>
-										</div>
+										<c:if test="${!empty selUpload}">							                 
+	                                        <c:forEach var="imgSrc" items="${selUpload}" varStatus="i">
+	                                        	<div class="media">
+	                                           		<a href="/share/upload/${imgSrc.upload_src_name}" target="_blank"><img src="/share/upload/${imgSrc.upload_src_name}" alt="" title="골든"/></a>
+	                                           	</div>                                           	
+	                                        </c:forEach>			                                      
+	                                    </c:if>					
 									</div>
 									<footer>
 										<a href="/list" class="button big">전체 보기</a>
