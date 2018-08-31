@@ -29,8 +29,11 @@ CREATE TABLE `board` (
   `region_do_val` int(11) DEFAULT NULL,
   `region_si_val` int(11) DEFAULT NULL,
   `region_gu_val` int(11) DEFAULT NULL,
+  `trade_type` varchar(100) DEFAULT NULL,
+  `sale_type` varchar(100) DEFAULT NULL,
+  `price` int(100) DEFAULT NULL,
   PRIMARY KEY (`board_seq`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `board` (
 
 LOCK TABLES `board` WRITE;
 /*!40000 ALTER TABLE `board` DISABLE KEYS */;
-INSERT INTO `board` VALUES (3,'test',NULL,1,1,1),(4,'test',NULL,1,2,3),(5,'test123',NULL,1,1,2),(6,'2개 첨부',NULL,1,1,1);
+INSERT INTO `board` VALUES (3,'test',NULL,1,1,1,NULL,NULL,NULL),(4,'test',NULL,1,2,3,NULL,NULL,NULL),(5,'test123',NULL,1,1,2,NULL,NULL,NULL),(6,'2개 첨부',NULL,1,1,1,NULL,NULL,NULL),(7,'test',NULL,1,1,2,NULL,NULL,NULL),(8,'test',NULL,1,1,2,NULL,NULL,NULL),(9,'경로수정',NULL,1,1,2,NULL,NULL,NULL),(10,'업로드test',NULL,1,1,2,NULL,NULL,NULL),(11,'testtest',NULL,1,1,1,NULL,NULL,NULL),(12,'test',NULL,1,1,1,NULL,NULL,NULL),(13,'업로드 완성인듯',NULL,1,2,3,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `board` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,11 +159,12 @@ CREATE TABLE `upload` (
   `upload_seq` int(11) NOT NULL AUTO_INCREMENT,
   `board_seq` int(11) NOT NULL,
   `upload_src` text,
+  `upload_src_name` text,
   `upload_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`upload_seq`),
   KEY `board_seq_idx` (`board_seq`),
   CONSTRAINT `board_seq` FOREIGN KEY (`board_seq`) REFERENCES `board` (`board_seq`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -169,7 +173,7 @@ CREATE TABLE `upload` (
 
 LOCK TABLES `upload` WRITE;
 /*!40000 ALTER TABLE `upload` DISABLE KEYS */;
-INSERT INTO `upload` VALUES (1,3,'C:\\eGovFrame-3.6.0\\real-estate\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\real_estate_adm\\resources\\upload\\88d01e84fbb448edbf582afe28df3db6','인연.png'),(2,5,'C:\\eGovFrame-3.6.0\\real-estate\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\real_estate_adm\\resources\\upload\\347654706c6f42b5a2af3c7d19e5ea06.png','인연.png'),(3,6,'C:\\eGovFrame-3.6.0\\real-estate\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\real_estate_adm\\resources\\upload\\0ff779bd4109478db9fa2c09b91fe220.png','인연.png'),(4,6,'C:\\eGovFrame-3.6.0\\real-estate\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\real_estate_adm\\resources\\upload\\ce20bc2bc4c54c6fa68e64223b9094d6.jpg','예비군 교육훈련 소집통지서.jpg');
+INSERT INTO `upload` VALUES (9,12,'C://Users/YUNA/git/real_estate/real_estate_adm/src/main/webapp/resources/upload/4dd2e16088c5486383f0a11ac75e30b1.png','4dd2e16088c5486383f0a11ac75e30b1.png','인연.png'),(10,13,'C://Users/YUNA/git/real_estate/real_estate_adm/src/main/webapp/resources/upload/6f9cecf87a1a46249e712464b8824119.jpg','6f9cecf87a1a46249e712464b8824119.jpg','예비군 교육훈련 소집통지서.jpg');
 /*!40000 ALTER TABLE `upload` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -182,4 +186,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-30 18:29:56
+-- Dump completed on 2018-08-31 18:05:13
